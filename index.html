@@ -372,6 +372,16 @@
 
   .section-title em { font-style: italic; color: var(--blue-200); }
 
+  .mobile-br {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .mobile-br {
+      display: block;
+    }
+  }
+
   .section-desc {
     font-size: 1.05rem;
     font-weight: 300;
@@ -1334,7 +1344,7 @@
 <!-- PROBLEM -->
 <section id="problem">
   <div class="section-tag">왜 블루노트인가</div>
-  <h2 class="section-title reveal">청음,<br>왜 이렇게 <em>어렵게</em> 배워왔을까요? </h2>
+  <h2 class="section-title reveal">청음,<br>왜 이렇게 <em>어렵게</em> <br class="mobile-br">배워왔을까요? </h2>
   <p class="section-desc reveal">
     아날로그 방식 그대로 수십 년째 변하지 않는 청음 교육 <br> 불편하지 않으신가요?
   </p>
@@ -1361,7 +1371,7 @@
 <section id="features">
   <div class="features-header reveal">
     <div class="section-tag">기능</div>
-    <h2 class="section-title"><em>박치 탈출</em> 부터 <em>서울대 입시</em> 까지,<br>AI로 스마트하게 완성하는<br>청음 훈련</h2>
+    <h2 class="section-title"><em>박치 탈출</em> 부터<em><br class="mobile-br">서울대 입시</em> 까지,<br>AI로 스마트하게 <br class="mobile-br">완성하는<br>청음 훈련</h2>
   </div>
 
   <!-- Feature 1: UI/UX (동기부여형) -->
