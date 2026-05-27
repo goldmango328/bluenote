@@ -39,9 +39,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.25rem 3rem;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
     transition: background 0.3s;
   }
 
@@ -50,7 +50,7 @@
     font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: -0.02em;
-    color: var(--white);
+    color: var(--ink);
     text-decoration: none;
   }
 
@@ -69,7 +69,7 @@
   nav ul a {
     font-size: 0.85rem;
     font-weight: 400;
-    color: rgba(255,255,255,0.6);
+    color: var(--ink);
     text-decoration: none;
     letter-spacing: 0.03em;
     transition: color 0.2s;
@@ -99,7 +99,8 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    overflow-x : hidden;
+    overflow-y : visible;
   }
 
   /* ── HERO ── */
@@ -382,7 +383,7 @@
 
   .problem-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     max-width: 1200px;
     width: 100%;
@@ -502,6 +503,9 @@
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
+    width: 100%;
+    overflow-x : auto;
+    padding-bottom: 4px;
   }
 
   .feature-bullets li {
@@ -509,7 +513,9 @@
     color: rgba(255,255,255,0.6);
     display: flex;
     align-items: flex-start;
-    gap: 0.6rem;
+    gap: 0.8rem;
+    white-space: normal;
+    word-break: keep-all;
   }
 
   .feature-bullets li::before {
@@ -683,32 +689,25 @@
   }
 
   .phone-frame {
-    position: relative;
-    width: 320px;
-    margin: 0 auto;
-    background: #0D1117;
-    border-radius: 44px;
-    border: 2px solid rgba(255,255,255,0.12);
-    padding: 1.5rem 1rem;
-    box-shadow: 0 0 80px rgba(55,138,221,0.08), inset 0 0 1px rgba(255,255,255,0.1);
-  }
-
-  .phone-notch {
-    width: 100px;
-    height: 26px;
-    background: #0D1117;
-    border-radius: 0 0 18px 18px;
-    margin: 0 auto 1.5rem;
-    border: 2px solid rgba(255,255,255,0.08);
-    border-top: none;
+    width: min(78vw, 320px);
   }
 
   .phone-screen {
-    min-height: 580px;
-    background: #0A0E18;
+    width: 100%;
+    max-height: 680px;
+    aspect-ratio: 9 / 19.5;
+    height: auto;
+
     border-radius: 28px;
     overflow: hidden;
-    position: relative;
+    background: #111;
+  }
+
+  .phone-screen iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
   }
 
   /* App screens */
@@ -1275,6 +1274,19 @@
 
   }
 
+  .figma-screen {
+    padding: 0;
+    overflow: hidden;
+    background: #111;
+  }
+
+  .figma-screen iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
 </style>
 </head>
 <body>
@@ -1285,7 +1297,6 @@
     <li><a href="#problem">왜 블루노트인가</a></li>
     <li><a href="#features">기능</a></li>
     <li><a href="#demo">체험하기</a></li>
-    <li><a href="#pricing">요금제</a></li>
     <!-- <li><a href="#contact" class="nav-cta">출시 알림 받기</a></li> -->
   </ul>
 </nav>
@@ -1313,7 +1324,7 @@
     </h1>
 
     <p class="hero-desc hero-animate hero-delay-3">
-      학습과 연습, 두 마리 토끼를 잡는 방법
+      <span>입시 청음 교육</span>의 <span>디지털 전환</span>을 만듭니다.
     </p>
   </div>
 
@@ -1323,30 +1334,25 @@
 <!-- PROBLEM -->
 <section id="problem">
   <div class="section-tag">왜 블루노트인가</div>
-  <h2 class="section-title reveal">청음,<br>왜 이렇게 <em>어렵게</em> 가르쳐왔을까요</h2>
+  <h2 class="section-title reveal">청음,<br>왜 이렇게 <em>어렵게</em> 배워왔을까요? </h2>
   <p class="section-desc reveal">
-    수십 년째 변하지 않는 청음 교육. 피아노 앞에서 선생님이 치는 음을 맞히는 일 <br>— 비효율적이고, 불안하고, 접근하기 어렵습니다.
+    아날로그 방식 그대로 수십 년째 변하지 않는 청음 교육 <br> 불편하지 않으신가요?
   </p>
   <div class="problem-grid reveal">
     <div class="problem-card">
       <span class="problem-icon">🎹</span>
-      <h3>혼자 연습할 방법이 없다</h3>
-      <p>청음은 실시간 피드백 없이는 실력이 느는지조차 알 수 없습니다. 혼자 하면 틀려도 모르고 넘어갑니다.</p>
-    </div>
-    <div class="problem-card">
-      <span class="problem-icon">📊</span>
-      <h3>기존 앱은 너무 단조롭다</h3>
-      <p>음정 맞추기 게임 수준의 기존 앱들은 실전에서 필요한 화음 청음, 리듬 받아쓰기, 사보 능력으로 이어지지 않습니다.</p>
+      <h3>실질적으로 어려운 자율학습</h3>
+      <p>학생 스스로 연주하며 받아적기 어려운 물리적 제약 때문에 청음은 사실상 '독학이 불가능한 영역'이었습니다.</p>
     </div>
     <div class="problem-card">
       <span class="problem-icon">📝</span>
-      <h3>사보 채점은 선생님만 할 수 있다</h3>
-      <p>직접 오선지에 써낸 사보 과제를 즉각적으로 채점해주는 도구가 없었습니다. 결과를 알기까지 며칠이 걸렸죠.</p>
+      <h3>고비용 오프라인 레손에 대한 의존</h3>
+      <p>음악 전공 입시 및 임용고시의 필수 관문임에도 현재로써 1:1 개인 레슨에 의존하는 수밖에 없고 이로 인해 심각한 경제적 부담이 발생하고 있습니다.</p>
     </div>
     <div class="problem-card">
-      <span class="problem-icon">🗺️</span>
-      <h3>커리큘럼이 없다</h3>
-      <p>무엇부터 시작해야 할지, 지금 내 수준이 어느 정도인지 — 대부분의 학습자들은 길을 잃습니다.</p>
+      <span class="problem-icon">📚</span>
+      <h3>아날로그식 기출 반복의 한계</h3>
+      <p>시중의 한정된 청음 문제집만 단순 반복하는 방식으로는 실력 향상의 한계가 분명히 존재합니다. 임시표, 변박, 전조 등 실제 시험에서 요구하는 능력을 키우기 위한 문제 환경은 아쉽게도 부재한 상황입니다.</p>
     </div>
   </div>
 </section>
@@ -1355,21 +1361,21 @@
 <section id="features">
   <div class="features-header reveal">
     <div class="section-tag">기능</div>
-    <h2 class="section-title">하나의 앱으로,<br><em>완전한</em> 청음 훈련</h2>
+    <h2 class="section-title"><em>박치 탈출</em> 부터 <em>서울대 입시</em> 까지,<br>AI로 스마트하게 완성하는<br>청음 훈련</h2>
   </div>
 
-  <!-- Feature 1: AI Learning -->
+  <!-- Feature 1: UI/UX (동기부여형) -->
   <div class="feature-row reveal">
     <div class="feature-content">
-      <div class="feature-label">01 — AI 학습 도우미</div>
-      <h3 class="feature-title">실시간으로 듣고<br>즉시 피드백</h3>
+      <div class="feature-label">01 — 동기부여형 UI/UX</div>
+      <h3 class="feature-title">지치지 않고 매일,<br>청음 습관 형성</h3>
       <p class="feature-desc">
-        음정을 맞힐 때마다 AI가 분석합니다. 어떤 유형의 음정에서 실수가 잦은지, 어떤 패턴을 반복적으로 틀리는지 — 데이터로 파악하고, 맞춤형 연습 세션을 추천합니다.
+        자습용 청음 학습의 가장 큰 장벽은 '지속성'과 '동기부여'입니다. 블루노트는 학습자가 매일 몰입할 수 있도록 세밀하게 설계된 게이미피케이션 환경을 제공합니다.
       </p>
       <ul class="feature-bullets">
-        <li>실시간 정확도 분석</li>
-        <li>약점 패턴 자동 감지 및 집중 훈련 추천</li>
-        <li>학습 진도 시각화 대시보드</li>
+        <li><strong>성장형 캐릭터 '리빗' 시스템:</strong> 일일 퀘스트와 유닛을 클리어하며 함께 성장하는 재미</li>
+        <li><strong>출석 캘린더:</strong> 달력 형태로 누적되는 일일 연습 시간과 출석 데이터</li>
+        <li><strong>취약점 정밀 분석 대시보드:</strong> 부문별 오답률과 성과를 한눈에 시각화</li>
       </ul>
     </div>
     <div class="feature-mockup">
@@ -1380,50 +1386,27 @@
         <div class="mockup-title-bar">오늘의 학습 리포트</div>
       </div>
       <div class="score-display">
-        <div class="score-big" id="score-num">84</div>
-        <div class="score-label">오늘의 정확도</div>
-      </div>
-      <div class="score-bars">
-        <div class="score-bar-row">
-          <div class="score-bar-label">음정</div>
-          <div class="score-bar-track"><div class="score-bar-fill" style="width:92%"></div></div>
-          <div class="score-bar-num">92</div>
-        </div>
-        <div class="score-bar-row">
-          <div class="score-bar-label">화음</div>
-          <div class="score-bar-track"><div class="score-bar-fill" style="width:76%"></div></div>
-          <div class="score-bar-num">76</div>
-        </div>
-        <div class="score-bar-row">
-          <div class="score-bar-label">리듬</div>
-          <div class="score-bar-track"><div class="score-bar-fill" style="width:88%"></div></div>
-          <div class="score-bar-num">88</div>
-        </div>
-        <div class="score-bar-row">
-          <div class="score-bar-label">사보</div>
-          <div class="score-bar-track"><div class="score-bar-fill" style="width:71%"></div></div>
-          <div class="score-bar-num">71</div>
-        </div>
+        <img src="./libbit.png" alt="블루노트 캐릭터 리빗" style="width: 160px; height: auto; display: block; margin: 0 auto 0.75rem; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));">
+        <div class="score-label" style="margin-top: 0.5rem; color: var(--white); font-weight: 500;">캐릭터 '리빗' Lv.2 쫑긋한 귀</div>
       </div>
       <div style="margin-top:1.25rem;padding:0.85rem 1rem;background:rgba(55,138,221,0.08);border-radius:10px;border:1px solid rgba(55,138,221,0.18);">
-        <div style="font-size:0.72rem;font-family:'Pretendard',monospace;color:var(--blue-200);margin-bottom:0.3rem;">AI 추천</div>
-        <div style="font-size:0.82rem;color:rgba(255,255,255,0.65);">단3도 화음에서 실수가 잦아요. 오늘 집중 훈련을 시작해볼까요?</div>
+        <div style="font-size:0.72rem;font-family:'Pretendard',monospace;color:var(--blue-200);margin-bottom:0.3rem;">일일 퀘스트 (1/3)</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.65);">🔥 4일 연속 학습 중! 오늘 목표까지 8문제 남았어요.</div>
       </div>
     </div>
   </div>
 
-  <!-- Feature 2: Score Grading -->
+  <!-- Feature 2: 학습모드 (목적 맞춤형) -->
   <div class="feature-row reverse reveal">
     <div class="feature-content">
-      <div class="feature-label">02 — 사보 자동 채점</div>
-      <h3 class="feature-title">오선지에 써낸<br>악보를 즉시 채점</h3>
+      <div class="feature-label">02 — 목적에 맞는 학습 모드</div>
+      <h3 class="feature-title">기초 체력부터<br>실전 시험 대비까지</h3>
       <p class="feature-desc">
-        직접 손으로 쓴 사보를 카메라로 찍으면, AI가 음정·리듬·조표를 분석해 즉각 점수와 피드백을 제공합니다. 더 이상 선생님을 기다릴 필요가 없습니다.
+        조성을 무작위로 섞어가며 내실을 다지는 기초 학습부터, 특정 학교 입시 및 임용고시의 범위를 정밀 타격하는 맞춤형 환경을 모두 지원합니다.
       </p>
       <ul class="feature-bullets">
-        <li>손사보 이미지 → AI 자동 인식</li>
-        <li>음정별 오류 위치 하이라이트</li>
-        <li>제출 즉시 상세 채점 리포트</li>
+        <li><strong>로드맵 모드 (Classic):</strong> 음정, 화음, 리듬 등 6개 부문의 난이도를 천천히 올리는 내실형 성장 모드</li>
+        <li><strong>시험 집중 모드 (Focus):</strong> 특정 조성이나 난이도 유닛을 직접 선택해 훈련하는 시험 대비 모드</li>
       </ul>
     </div>
     <div class="feature-mockup">
@@ -1431,29 +1414,57 @@
         <div class="mockup-dot" style="background:#FF5F56"></div>
         <div class="mockup-dot" style="background:#FFBD2E"></div>
         <div class="mockup-dot" style="background:#27C93F"></div>
-        <div class="mockup-title-bar">사보 채점 결과</div>
+        <div class="mockup-title-bar">모드 선택</div>
       </div>
-      <!-- Staff notation SVG -->
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+        <div style="padding: 1rem; background: rgba(55,138,221,0.1); border: 1px solid var(--blue-600); border-radius: 12px;">
+          <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem;">🗺️ 로드맵 모드 (Classic)</div>
+          <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">조성을 무작위로 섞어가며 세밀하게 성장</div>
+        </div>
+        <div style="padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+          <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem;">🎯 시험 집중 모드 (Focus)</div>
+          <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">원하는 조성과 유닛을 선택하여 단기 완성</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 3: 사보 자동 채점 (AI 컴퓨터 비전) -->
+  <div class="feature-row reveal">
+    <div class="feature-content">
+      <div class="feature-label">03 — 사보 자동 채점</div>
+      <h3 class="feature-title">오선지에 써낸 악보,<br>촬영 즉시 실시간 채점</h3>
+      <p class="feature-desc">
+        더 이상 채점을 위해 오프라인 선생님을 기다릴 필요가 없습니다. 손으로 직접 쓴 사보 답안지를 카메라로 찍어 업로드하면 AI가 실시간으로 분석합니다.
+      </p>
+      <ul class="feature-bullets">
+        <li><strong>CV 기반 악보 인식:</strong> 경량화 Vision 모델(YOLOv8n 등)로 음표, 쉼표, 박자표 정밀 인식</li>
+        <li><strong>MIDI 데이터 변환 채점:</strong> 인식 결과를 시스템 정답 데이터와 비교해 음악 구조 단위로 분석</li>
+        <li><strong>실시간 피드백:</strong> 음정 및 박자 오류 위치를 악보 상에 즉시 하이라이트 표시</li>
+      </ul>
+    </div>
+    <div class="feature-mockup">
+      <div class="mockup-header">
+        <div class="mockup-dot" style="background:#FF5F56"></div>
+        <div class="mockup-dot" style="background:#FFBD2E"></div>
+        <div class="mockup-dot" style="background:#27C93F"></div>
+        <div class="mockup-title-bar">AI 인식 및 채점 결과</div>
+      </div>
       <div class="staff-mockup" style="margin-bottom:1rem;">
         <svg width="100%" height="80" viewBox="0 0 280 80">
-          <!-- Staff lines -->
           <line x1="20" y1="20" x2="260" y2="20" class="staff-svg-line"/>
           <line x1="20" y1="30" x2="260" y2="30" class="staff-svg-line"/>
           <line x1="20" y1="40" x2="260" y2="40" class="staff-svg-line"/>
           <line x1="20" y1="50" x2="260" y2="50" class="staff-svg-line"/>
           <line x1="20" y1="60" x2="260" y2="60" class="staff-svg-line"/>
-          <!-- Treble clef simplified -->
           <text x="22" y="56" fill="rgba(255,255,255,0.5)" font-size="44" font-family="serif">𝄞</text>
-          <!-- Notes (correct) -->
           <ellipse cx="90" cy="40" rx="7" ry="5" fill="#4ECDA4" opacity="0.9"/>
           <line x1="97" y1="40" x2="97" y2="15" stroke="#4ECDA4" stroke-width="1.5"/>
           <ellipse cx="130" cy="35" rx="7" ry="5" fill="#4ECDA4" opacity="0.9"/>
           <line x1="137" y1="35" x2="137" y2="10" stroke="#4ECDA4" stroke-width="1.5"/>
-          <!-- Note (wrong) -->
           <ellipse cx="170" cy="50" rx="7" ry="5" fill="#E87070" opacity="0.9"/>
           <line x1="177" y1="50" x2="177" y2="25" stroke="#E87070" stroke-width="1.5"/>
-          <text x="164" y="72" fill="#E87070" font-size="9" font-family="'DM Sans', sans-serif">장3도↑</text>
-          <!-- Note (correct) -->
+          <text x="164" y="72" fill="#E87070" font-size="9" font-family="'Pretendard', sans-serif">장3도↑</text>
           <ellipse cx="215" cy="45" rx="7" ry="5" fill="#4ECDA4" opacity="0.9"/>
           <line x1="222" y1="45" x2="222" y2="20" stroke="#4ECDA4" stroke-width="1.5"/>
         </svg>
@@ -1468,24 +1479,21 @@
           <div style="font-size:0.7rem;color:rgba(255,255,255,0.35);margin-top:0.1rem;">수정 필요</div>
         </div>
       </div>
-      <div style="margin-top:0.75rem;padding:0.6rem 0.85rem;background:rgba(232,112,112,0.06);border-radius:8px;font-size:0.78rem;color:rgba(255,255,255,0.5);">
-        ↳ 세 번째 음: 장3도 위로 올려야 해요
-      </div>
     </div>
   </div>
 
-  <!-- Feature 3: Curriculum -->
-  <div class="feature-row reveal">
+  <!-- Feature 4: Curriculum (탄탄한 커리큘럼) -->
+  <div class="feature-row reverse reveal">
     <div class="feature-content">
-      <div class="feature-label">03 — 체계적인 커리큘럼</div>
-      <h3 class="feature-title">어디서부터 시작해야<br>할지 알 수 없다면</h3>
+      <div class="feature-label">04 — 탄탄한 커리큘럼</div>
+      <h3 class="feature-title">기초 박치 탈출부터<br>최상위 입시 수준까지</h3>
       <p class="feature-desc">
-        음정 → 음계 → 화음 → 리듬 → 사보로 이어지는 단계별 커리큘럼이 설계되어 있습니다. 레벨 테스트를 통해 현재 수준을 파악하고, 맞춤 경로로 시작하세요.
+        국내 최고 수준의 음악 교육 공학 설계를 바탕으로 설계되었습니다. 입문 단계부터 서울대 작곡과 입시 수준까지 정밀하게 세분화된 문제 은행을 제공합니다.
       </p>
       <ul class="feature-bullets">
-        <li>레벨 테스트로 시작점 자동 배치</li>
-        <li>난이도 자동 조절 적응형 문제 출제</li>
-        <li>1,000+ 개 문제 뱅크</li>
+        <li><strong>총 6개 핵심 부문 완비:</strong> 음정, 3화음/7화음, 리듬, 단성, 2성, 4성 청음</li>
+        <li><strong>고품질 음원 표준화:</strong> 전 문항 Note Performer 가상악기 음원 활용 (Sample Rate 44.1kHz 준수)</li>
+        <li><strong>실전 맞춤 제어:</strong> 전체 마디 듣기, 두 마디씩 나눠 듣기 옵션 및 템포 조절 지원</li>
       </ul>
     </div>
     <div class="feature-mockup">
@@ -1493,233 +1501,41 @@
         <div class="mockup-dot" style="background:#FF5F56"></div>
         <div class="mockup-dot" style="background:#FFBD2E"></div>
         <div class="mockup-dot" style="background:#27C93F"></div>
-        <div class="mockup-title-bar">나의 커리큘럼</div>
+        <div class="mockup-title-bar">블루노트 청음 6대 과목</div>
       </div>
-      <div class="curriculum-list">
-        <div class="curriculum-item">
-          <div class="curriculum-num">01</div>
-          <div class="curriculum-name">순차 음정 (2도~옥타브)</div>
-          <div class="curriculum-badge badge-done">완료</div>
-        </div>
-        <div class="curriculum-item" style="border-color:rgba(55,138,221,0.3);background:rgba(55,138,221,0.06);">
-          <div class="curriculum-num" style="color:var(--blue-200);">02</div>
-          <div class="curriculum-name" style="color:var(--white);">도약 음정 · 장단조</div>
-          <div class="curriculum-badge badge-active">진행중</div>
-        </div>
-        <div class="curriculum-item">
-          <div class="curriculum-num">03</div>
-          <div class="curriculum-name">3화음 · 7화음</div>
-          <div class="curriculum-badge badge-lock">잠금</div>
-        </div>
-        <div class="curriculum-item">
-          <div class="curriculum-num">04</div>
-          <div class="curriculum-name">리듬 받아쓰기</div>
-          <div class="curriculum-badge badge-lock">잠금</div>
-        </div>
-        <div class="curriculum-item">
-          <div class="curriculum-num">05</div>
-          <div class="curriculum-name">선율 사보 (단선율)</div>
-          <div class="curriculum-badge badge-lock">잠금</div>
-        </div>
-      </div>
-      <div style="margin-top:1rem;background:rgba(255,255,255,0.03);border-radius:10px;padding:0.75rem 1rem;display:flex;align-items:center;gap:0.75rem;">
-        <div style="flex:1;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;">
-          <div style="width:28%;height:100%;background:var(--blue-200);border-radius:2px;"></div>
-        </div>
-        <div style="font-size:0.75rem;font-family:'Pretendard',monospace;color:rgba(255,255,255,0.4);">28% 완료</div>
+      <div class="score-bars" style="margin-top: 0.5rem;">
+        <div class="score-bar-row"><div class="score-bar-label" style="width:100px;">음정</div><div class="score-bar-track"><div class="score-bar-fill" style="width:80%"></div></div></div>
+        <div class="score-bar-row"><div class="score-bar-label" style="width:100px;">3화음/7화음</div><div class="score-bar-track"><div class="score-bar-fill" style="width:64%"></div></div></div>
+        <div class="score-bar-row"><div class="score-bar-label" style="width:100px;">리듬</div><div class="score-bar-track"><div class="score-bar-fill" style="width:32%"></div></div></div>
+        <div class="score-bar-row"><div class="score-bar-label" style="width:100px;">단성</div><div class="score-bar-track"><div class="score-bar-fill" style="width:50%"></div></div></div>
+        <div class="score-bar-row"><div class="score-bar-label" style="width:100px;">2성</div><div class="score-bar-track"><div class="score-bar-fill" style="width:78%"></div></div></div>
+        <div class="score-bar-row"><div class="score-bar-label" style="width:100px;">4성</div><div class="score-bar-track"><div class="score-bar-fill" style="width:66%"></div></div></div>
       </div>
     </div>
   </div>
+  
 </section>
 
 <!-- DEMO -->
 <section id="demo">
   <div class="demo-header reveal">
     <div class="section-tag">직접 체험하기</div>
-    <h2 class="section-title">실제로 어떻게<br><em>작동하는지</em> 해보세요</h2>
-    <p class="section-desc" style="max-width:480px;margin:0 auto;">화음을 듣고 답을 선택해보세요. 블루노트의 청음 훈련을 미리 경험할 수 있습니다.</p>
+    <h2 class="section-title">실제로 어떤 기능들이<br><em>제공되는지</em> 보세요</h2>
+    <p class="section-desc" style="max-width:480px;margin:0 auto;">블루노트의 체계적인 시스템을 미리 경험할 수 있습니다.</p>
   </div>
 
-  <div class="demo-controls reveal" style="margin-bottom:2rem;">
-    <button class="demo-tab active" onclick="switchDemo(0, this)">화음 청음</button>
-    <button class="demo-tab" onclick="switchDemo(1, this)">음정 식별</button>
-    <button class="demo-tab" onclick="switchDemo(2, this)">학습 현황</button>
-  </div>
-
-  <div class="phone-frame reveal">
-    <div class="phone-notch"></div>
-    <div class="phone-screen">
-
-      <!-- Screen 0: Chord Ear Training -->
-      <div class="app-screen active" id="screen-0">
-        <div class="app-header">
-          <span class="app-logo">Blue<span>Note</span></span>
-          <span class="app-badge">DEMO</span>
-        </div>
-
-        <div style="font-size:0.7rem;font-family:'Pretendard',monospace;color:rgba(255,255,255,0.3);margin-bottom:0.75rem;">화음 청음 — 레벨 2</div>
-
-        <div class="listen-card">
-          <div class="now-playing-label">지금 재생 중</div>
-          <div class="chord-display" id="demo-chord">C</div>
-          <div class="chord-type" id="demo-chord-type">장3화음</div>
-
-          <div class="piano-visual" id="piano-container">
-            <!-- Rendered by JS -->
-          </div>
-
-          <button class="play-btn" id="play-btn" onclick="playDemo()">▶</button>
-          <div class="play-label" id="play-label">탭하여 재생</div>
-        </div>
-
-        <div style="font-size:0.75rem;color:rgba(255,255,255,0.3);margin-bottom:0.5rem;text-align:center;">어떤 화음인가요?</div>
-        <div class="answer-grid" id="answer-grid">
-          <!-- Rendered by JS -->
-        </div>
-        <div class="feedback-msg" id="feedback-msg"></div>
-      </div>
-
-      <!-- Screen 1: Interval Recognition -->
-      <div class="app-screen" id="screen-1">
-        <div class="app-header">
-          <span class="app-logo">Blue<span>Note</span></span>
-          <span class="app-badge">DEMO</span>
-        </div>
-
-        <div style="font-size:0.7rem;font-family:'Pretendard',monospace;color:rgba(255,255,255,0.3);margin-bottom:0.75rem;">음정 식별 — 레벨 1</div>
-
-        <div class="listen-card">
-          <div class="now-playing-label">두 음의 거리는?</div>
-          <div style="display:flex;justify-content:center;align-items:center;gap:1.5rem;margin:1rem 0;">
-            <div style="text-align:center;">
-              <div style="font-family:'Pretendard',serif;font-size:2.2rem;font-weight:900;color:var(--white);">C</div>
-              <div style="font-size:0.7rem;color:rgba(255,255,255,0.3);">아래 음</div>
-            </div>
-            <div style="font-size:1.5rem;color:rgba(255,255,255,0.15);">→</div>
-            <div style="text-align:center;">
-              <div style="font-family:'Pretendard',serif;font-size:2.2rem;font-weight:900;color:var(--blue-200);">?</div>
-              <div style="font-size:0.7rem;color:rgba(255,255,255,0.3);">위 음</div>
-            </div>
-          </div>
-          <button class="play-btn" onclick="playInterval()">▶</button>
-          <div class="play-label">탭하여 재생</div>
-        </div>
-
-        <div style="font-size:0.75rem;color:rgba(255,255,255,0.3);margin-bottom:0.5rem;text-align:center;">음정을 고르세요</div>
-        <div class="answer-grid" id="interval-grid">
-          <button class="answer-btn" onclick="checkInterval(this,'장2도','wrong')">장2도</button>
-          <button class="answer-btn" onclick="checkInterval(this,'장3도','correct')">장3도</button>
-          <button class="answer-btn" onclick="checkInterval(this,'완전4도','wrong')">완전4도</button>
-          <button class="answer-btn" onclick="checkInterval(this,'완전5도','wrong')">완전5도</button>
-        </div>
-        <div class="feedback-msg" id="interval-feedback"></div>
-      </div>
-
-      <!-- Screen 2: Stats -->
-      <div class="app-screen" id="screen-2">
-        <div class="app-header">
-          <span class="app-logo">Blue<span>Note</span></span>
-          <span class="app-badge">DEMO</span>
-        </div>
-
-        <div style="font-size:0.7rem;font-family:'Pretendard',monospace;color:rgba(255,255,255,0.3);margin-bottom:1rem;">이번 주 학습 현황</div>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:1rem;">
-          <div style="background:rgba(55,138,221,0.08);border:1px solid rgba(55,138,221,0.2);border-radius:12px;padding:0.85rem;text-align:center;">
-            <div style="font-family:'Pretendard',serif;font-size:2rem;font-weight:900;color:var(--blue-200);">127</div>
-            <div style="font-size:0.7rem;color:rgba(255,255,255,0.35);">총 문제 풀이</div>
-          </div>
-          <div style="background:rgba(30,180,120,0.08);border:1px solid rgba(78,205,164,0.2);border-radius:12px;padding:0.85rem;text-align:center;">
-            <div style="font-family:'Pretendard',serif;font-size:2rem;font-weight:900;color:#4ECDA4;">84%</div>
-            <div style="font-size:0.7rem;color:rgba(255,255,255,0.35);">정확도</div>
-          </div>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:1rem;margin-bottom:0.75rem;">
-          <div style="font-size:0.72rem;font-family:'Pretendard',monospace;color:rgba(255,255,255,0.3);margin-bottom:0.75rem;">요일별 학습량</div>
-          <div style="display:flex;align-items:flex-end;gap:6px;height:60px;">
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
-              <div style="width:100%;background:rgba(55,138,221,0.5);border-radius:3px;height:30px;"></div>
-              <div style="font-size:0.6rem;color:rgba(255,255,255,0.25);">월</div>
-            </div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
-              <div style="width:100%;background:rgba(55,138,221,0.5);border-radius:3px;height:50px;"></div>
-              <div style="font-size:0.6rem;color:rgba(255,255,255,0.25);">화</div>
-            </div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
-              <div style="width:100%;background:rgba(55,138,221,0.3);border-radius:3px;height:20px;"></div>
-              <div style="font-size:0.6rem;color:rgba(255,255,255,0.25);">수</div>
-            </div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
-              <div style="width:100%;background:rgba(55,138,221,0.5);border-radius:3px;height:42px;"></div>
-              <div style="font-size:0.6rem;color:rgba(255,255,255,0.25);">목</div>
-            </div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
-              <div style="width:100%;background:rgba(55,138,221,0.8);border-radius:3px;height:58px;border:1px solid rgba(55,138,221,0.5);"></div>
-              <div style="font-size:0.6rem;color:var(--blue-200);">금</div>
-            </div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
-              <div style="width:100%;background:rgba(255,255,255,0.08);border-radius:3px;height:8px;"></div>
-              <div style="font-size:0.6rem;color:rgba(255,255,255,0.25);">토</div>
-            </div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
-              <div style="width:100%;background:rgba(255,255,255,0.08);border-radius:3px;height:8px;"></div>
-              <div style="font-size:0.6rem;color:rgba(255,255,255,0.25);">일</div>
-            </div>
-          </div>
-        </div>
-
-        <div style="background:rgba(55,138,221,0.06);border:1px solid rgba(55,138,221,0.15);border-radius:10px;padding:0.75rem;font-size:0.78rem;color:rgba(255,255,255,0.55);">
-          🔥 4일 연속 학습 중! 오늘 목표까지 <span style="color:var(--blue-200);font-weight:500;">8문제</span> 남았어요.
-        </div>
-      </div>
-
-    </div><!-- /phone-screen -->
-  </div><!-- /phone-frame -->
-</section>
-
-<!-- PRICING -->
-<section id="pricing">
-  <div class="pricing-header reveal">
-    <div class="section-tag">요금제</div>
-    <h2 class="section-title">합리적인 구독으로<br><em>무제한</em> 훈련</h2>
-    <p class="section-desc">월 구독 기반으로 모든 기능을 제한 없이 사용하세요.</p>
-  </div>
-
-  <div class="pricing-cards reveal">
-    <div class="pricing-card">
-      <div class="plan-name">Basic</div>
-      <div class="plan-price"><sup>₩</sup>6,900</div>
-      <div class="plan-period">/ 월</div>
-      <ul class="plan-features">
-        <li>일 20문제 제공</li>
-        <li>음정·화음 기초 모듈</li>
-        <li>기본 학습 리포트</li>
-        <li>커리큘럼 1~3단계</li>
-      </ul>
-      <a href="#contact" class="plan-cta plan-cta-ghost">출시 알림 받기</a>
-    </div>
-
-    <div class="pricing-card featured">
-      <div class="plan-name">Pro</div>
-      <div class="plan-price"><sup>₩</sup>13,900</div>
-      <div class="plan-period">/ 월</div>
-      <ul class="plan-features">
-        <li>무제한 문제 풀이</li>
-        <li>전 모듈 (음정·화음·리듬·사보)</li>
-        <li>AI 사보 자동 채점</li>
-        <li>상세 AI 분석 리포트</li>
-        <li>오프라인 모드 지원</li>
-      </ul>
-      <a href="#contact" class="plan-cta plan-cta-primary">출시 알림 받기</a>
-    </div>
+  <div class="phone-screen figma-screen">
+    <iframe
+      src="https://embed.figma.com/proto/oLMCZGV1T9oJW8sORgnvLx/%EC%B2%AD%EC%9D%8C%EC%95%B1?node-id=201-195&p=f&scaling=contain&content-scaling=fixed&page-id=199%3A130&starting-point-node-id=201%3A195&show-proto-sidebar=0&embed-host=share"
+      allowfullscreen
+    ></iframe>
   </div>
 
   <div class="launch-notice reveal">
     <span class="launch-icon">🎵</span>
     <div class="launch-text">
       <strong>2026년 하반기 출시 예정</strong><br>
-      지금 이메일을 남기시면 얼리버드 할인과 출시 소식을 가장 먼저 알려드립니다.
+      이제 청음 훈련, 블루노트와 함께하세요!
     </div>
   </div>
 </section>
